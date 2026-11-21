@@ -7,7 +7,8 @@
  */
 const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
   ? 'http://localhost:3000/api'
-  : 'https://TU-BACKEND-EN-RENDER.onrender.com/api';
+  : 'https://palacio-morfi-prueba.onrender.com/api';
+
 
 // Helper para formatear precios en ARS
 function formatPrecio(n) {
