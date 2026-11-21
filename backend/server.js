@@ -43,6 +43,38 @@ app.use('/api/platos', platosRoutes);
 app.use('/api/pedidos', pedidosRoutes);
 app.use('/api/ventas', ventasRoutes);
 
+// ========== ENDPOINT TEMPORAL DE SEED (BORRAR DESPUÉS) ==========
+const Plato = require('./models/Plato');
+
+app.get('/api/seed', async (req, res) => {
+  try {
+    const platosEjemplo = [
+      { nombre: 'Empanadas de carne (x3)', descripcion: 'Empanadas caseras de carne cortada a cuchillo', precio: 3500, categoria: 'entrada', disponible: true },
+      { nombre: 'Provoleta', descripcion: 'Queso provolone a la plancha con orégano y aceite de oliva', precio: 4800, categoria: 'entrada', disponible: true },
+      { nombre: 'Tabla de fiambres', descripcion: 'Selección de fiambres y quesos para 2 personas', precio: 7200, categoria: 'entrada', disponible: true },
+      { nombre: 'Bife de chorizo', descripcion: '300g de bife de chorizo a la parrilla con papas fritas', precio: 9500, categoria: 'principal', disponible: true },
+      { nombre: 'Pollo al disco', descripcion: 'Pollo deshuesado con verduras salteadas', precio: 7800, categoria: 'principal', disponible: true },
+      { nombre: 'Milanesa napolitana', descripcion: 'Milanesa de ternera con jamón, queso y salsa, acompañada de papas', precio: 8200, categoria: 'principal', disponible: true },
+      { nombre: 'Ravioles de ricota', descripcion: 'Ravioles caseros con salsa fileto o bolognesa', precio: 6900, categoria: 'principal', disponible: true },
+      { nombre: 'Ensalada completa', descripcion: 'Lechuga, tomate, zanahoria, huevo, jamón y queso', precio: 5500, categoria: 'principal', disponible: true },
+      { nombre: 'Agua mineral 500ml', descripcion: 'Con o sin gas', precio: 1200, categoria: 'bebida', disponible: true },
+      { nombre: 'Gaseosa 500ml', descripcion: 'Coca-Cola, Sprite o Fanta', precio: 1500, categoria: 'bebida', disponible: true },
+      { nombre: 'Cerveza artesanal 500ml', descripcion: 'Rubia o IPA', precio: 2800, categoria: 'bebida', disponible: true },
+      { nombre: 'Vino tinto (copa)', descripcion: 'Malbec de la casa', precio: 2200, categoria: 'bebida', disponible: true },
+      { nombre: 'Flan casero', descripcion: 'Con dulce de leche y crema', precio: 2800, categoria: 'postre', disponible: true },
+      { nombre: 'Tiramisú', descripcion: 'Porción individual', precio: 3200, categoria: 'postre', disponible: true },
+      { nombre: 'Helado (2 bochas)', descripcion: 'Sabores a elección', precio: 2500, categoria: 'postre', disponible: true },
+    ];
+
+    await Plato.deleteMany({});
+    const result = await Plato.insertMany(platosEjemplo);
+    res.json({ mensaje: `✅ ${result.length} platos insertados correctamente` });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+// ========== FIN ENDPOINT TEMPORAL ==========
+
 // Manejo de rutas no encontradas
 app.use((req, res) => {
   res.status(404).json({ message: 'Ruta no encontrada' });
