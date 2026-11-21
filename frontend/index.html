@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menú Digital – El Palacio del Morfi</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="header">
+    <h1>🍽️ El Palacio del Morfi</h1>
+    <nav class="header-nav">
+      <a href="index.html" class="active">Menú</a>
+      <a href="mozo.html">Panel Mozo</a>
+      <a href="cocina.html">Cocina</a>
+      <a href="ventas.html">Ventas</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h2 class="section-title">📋 Menú del día</h2>
+
+    <div class="filters" id="filtros">
+      <button class="filter-btn active" data-cat="todos">Todos</button>
+      <button class="filter-btn" data-cat="entrada">Entradas</button>
+      <button class="filter-btn" data-cat="principal">Principales</button>
+      <button class="filter-btn" data-cat="bebida">Bebidas</button>
+      <button class="filter-btn" data-cat="postre">Postres</button>
+    </div>
+
+    <div id="platos-container" class="platos-grid">
+      <div class="loading">Cargando menú...</div>
+    </div>
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="js/menu.js"></script>
+</body>
+</html>

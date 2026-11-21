@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ventas – El Palacio del Morfi</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="header">
+    <h1>💰 Control de Caja</h1>
+    <nav class="header-nav">
+      <a href="index.html">Menú</a>
+      <a href="mozo.html">Panel Mozo</a>
+      <a href="cocina.html">Cocina</a>
+      <a href="ventas.html" class="active">Ventas</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h2 class="section-title">📊 Resumen del día</h2>
+
+    <div id="resumen" class="resumen-grid">
+      <div class="loading">Cargando...</div>
+    </div>
+
+    <h2 class="section-title" style="margin-top:1.5rem">🧾 Últimas ventas</h2>
+    <div id="lista-ventas">
+      <div class="loading">Cargando...</div>
+    </div>
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="js/ventas.js"></script>
+</body>
+</html>

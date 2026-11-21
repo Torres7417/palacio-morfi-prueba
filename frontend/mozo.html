@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panel Mozo – El Palacio del Morfi</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="header">
+    <h1>🍽️ Panel Mozo</h1>
+    <nav class="header-nav">
+      <a href="index.html">Menú</a>
+      <a href="mozo.html" class="active">Panel Mozo</a>
+      <a href="cocina.html">Cocina</a>
+      <a href="ventas.html">Ventas</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="mozo-layout">
+      <!-- Lista de platos -->
+      <div>
+        <h2 class="section-title">📋 Seleccionar platos</h2>
+        <div class="filters" id="filtros">
+          <button class="filter-btn active" data-cat="todos">Todos</button>
+          <button class="filter-btn" data-cat="entrada">Entradas</button>
+          <button class="filter-btn" data-cat="principal">Principales</button>
+          <button class="filter-btn" data-cat="bebida">Bebidas</button>
+          <button class="filter-btn" data-cat="postre">Postres</button>
+        </div>
+        <div id="platos-container" class="platos-grid">
+          <div class="loading">Cargando...</div>
+        </div>
+      </div>
+
+      <!-- Panel del pedido -->
+      <div class="pedido-panel">
+        <h3>🛒 Pedido actual</h3>
+
+        <div class="form-group">
+          <label>Tipo de pedido</label>
+          <select id="tipo-pedido" class="form-control">
+            <option value="salon">Salón (mesa)</option>
+            <option value="para_llevar">Para llevar</option>
+            <option value="delivery">Delivery</option>
+          </select>
+        </div>
+
+        <div class="form-group" id="grupo-mesa">
+          <label>Mesa</label>
+          <select id="mesa" class="form-control">
+            <option value="">Seleccionar mesa...</option>
+            <!-- se llena por JS -->
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Mozo</label>
+          <input type="text" id="mozo" class="form-control" placeholder="Nombre del mozo" value="Mozo 1" />
+        </div>
+
+        <!-- Campos delivery -->
+        <div id="campos-delivery" class="delivery-fields" style="display:none">
+          <div class="form-group">
+            <label>Nombre del cliente</label>
+            <input type="text" id="cliente-nombre" class="form-control" placeholder="Nombre" />
+          </div>
+          <div class="form-group">
+            <label>Teléfono</label>
+            <input type="tel" id="cliente-tel" class="form-control" placeholder="11 1234-5678" />
+          </div>
+          <div class="form-group">
+            <label>Dirección</label>
+            <input type="text" id="cliente-dir" class="form-control" placeholder="Calle y número" />
+          </div>
+          <div class="form-group">
+            <label>Referencias</label>
+            <input type="text" id="cliente-ref" class="form-control" placeholder="Depto, timbre, etc." />
+          </div>
+          <div class="form-group">
+            <label>Método de pago</label>
+            <select id="metodo-pago" class="form-control">
+              <option value="efectivo">Efectivo</option>
+              <option value="transferencia">Transferencia</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="carrito">
+          <p style="color:var(--text-muted);font-size:0.9rem;text-align:center;padding:1rem 0">
+            Agregá platos al pedido
+          </p>
+        </div>
+
+        <div class="carrito-total" id="total-row" style="display:none">
+          <span>Total</span>
+          <span id="total-valor">$0</span>
+        </div>
+
+        <button class="btn btn-primary btn-block" id="btn-enviar" style="margin-top:1rem" disabled>
+          Enviar pedido a cocina
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="js/mozo.js"></script>
+</body>
+</html>

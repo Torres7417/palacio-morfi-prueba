@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panel Cocina – El Palacio del Morfi</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="header">
+    <h1>👨‍🍳 Panel Cocina</h1>
+    <nav class="header-nav">
+      <a href="index.html">Menú</a>
+      <a href="mozo.html">Panel Mozo</a>
+      <a href="cocina.html" class="active">Cocina</a>
+      <a href="ventas.html">Ventas</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;flex-wrap:wrap;gap:0.5rem">
+      <h2 class="section-title" style="margin:0">🔥 Pedidos activos</h2>
+      <button class="btn btn-outline btn-sm" onclick="cargarPedidos()">🔄 Actualizar</button>
+    </div>
+
+    <div id="pedidos-container" class="pedidos-cocina">
+      <div class="loading">Cargando pedidos...</div>
+    </div>
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="js/cocina.js"></script>
+</body>
+</html>
